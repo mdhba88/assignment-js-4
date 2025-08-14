@@ -1,5 +1,4 @@
 function totalFine(fare) {
-  // You have to write your code here
   if (typeof fare !== "number" || fare <= 0) {
     return "Invalid";
   }
@@ -8,7 +7,6 @@ function totalFine(fare) {
 }
 
 function onlyCharacter(str) {
-  // You have to write your code here
   if (typeof str !== "string") {
     return "Invalid";
   }
@@ -18,7 +16,6 @@ function onlyCharacter(str) {
 }
 
 function bestTeam(player1, player2) {
-  // You have to write your code here
   if (typeof player1 !== "object" || typeof player2 !== "object") {
     return "Invalid";
   }
@@ -36,21 +33,25 @@ function bestTeam(player1, player2) {
 }
 
 function isSame(arr1, arr2) {
-  // You have to write your code here
-  if (typeof arr1 !== "object" || typeof arr2 !== "object") {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
     return "Invalid";
+  }
+  if (arr1.length !== arr2.length) {
+    return false;
   }
   for (let i = 0; i < arr1.length; i++) {
     if (arr1[i] !== arr2[i]) {
       return false;
     }
   }
+  return true;
 }
 
 function resultReport(marks) {
   if (!Array.isArray(marks)) {
     return "Invalid";
   }
+
   if (marks.length === 0) {
     return {
       finalScore: 0,
@@ -82,4 +83,3 @@ function resultReport(marks) {
     fail: fail,
   };
 }
-console.log(resultReport([99]));

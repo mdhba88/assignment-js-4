@@ -1,35 +1,17 @@
-function resultReport(marks) {
-  if (!Array.isArray(marks)) {
+function isSame(arr1, arr2) {
+  // You have to write your code here
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
     return "Invalid";
   }
-  if (marks.length === 0) {
-    return {
-      finalScore: 0,
-      pass: 0,
-      fail: 0,
-    };
+  if (arr1.length !== arr2.length) {
+    return false;
   }
-
-  let avg = 0;
-  let pass = 0;
-  let fail = 0;
-  for (let i = 0; i < marks.length; i++) {
-    avg = avg + marks[i];
-
-    if (marks[i] < 40) {
-      fail++;
-    }
-    if (marks[i] >= 40) {
-      pass++;
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
     }
   }
-  let avgCalculate = avg / marks.length;
-  let finalScoreInt = Math.round(avgCalculate);
-
-  return {
-    finalScore: finalScoreInt,
-    pass: pass,
-    fail: fail,
-  };
+  return true;
 }
-console.log(resultReport([99, 87, 67, 12, 87]));
+
+console.log(isSame([34, 5, 7, 9], [34, 5, 7]));
