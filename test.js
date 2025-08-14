@@ -1,12 +1,35 @@
-function isSame(arr1, arr2) {
-  // You have to write your code here
-  if (typeof arr1 !== "object" || typeof arr2 !== "object") {
+function resultReport(marks) {
+  if (!Array.isArray(marks)) {
     return "Invalid";
   }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
+  if (marks.length === 0) {
+    return {
+      finalScore: 0,
+      pass: 0,
+      fail: 0,
+    };
+  }
+
+  let avg = 0;
+  let pass = 0;
+  let fail = 0;
+  for (let i = 0; i < marks.length; i++) {
+    avg = avg + marks[i];
+
+    if (marks[i] < 40) {
+      fail++;
+    }
+    if (marks[i] >= 40) {
+      pass++;
     }
   }
+  let avgCalculate = avg / marks.length;
+  let finalScoreInt = Math.round(avgCalculate);
+
+  return {
+    finalScore: finalScoreInt,
+    pass: pass,
+    fail: fail,
+  };
 }
-console.log(isSame([1, "4", 4], [1, 4, 4]));
+console.log(resultReport([99, 87, 67, 12, 87]));
